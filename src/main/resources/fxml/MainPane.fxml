@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pong.PongGame">
+   <children>
+      <Button fx:id="newGame" contentDisplay="CENTER" layoutX="274.0" layoutY="1.0" mnemonicParsing="false" onAction="#newGame" text="New Game" textAlignment="CENTER" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="373.0" layoutX="309.0" layoutY="26.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Label fx:id="p1Score" alignment="CENTER" contentDisplay="CENTER" layoutX="228.0" layoutY="359.0" text="P1 Score" textAlignment="CENTER" />
+      <Label fx:id="p2Score" alignment="CENTER" contentDisplay="CENTER" layoutX="349.0" layoutY="359.0" text="P2 Score" textAlignment="CENTER" />
+      <Button fx:id="pause" layoutX="282.0" layoutY="373.0" mnemonicParsing="false" onAction="#pauseGame" text=" Pause " textAlignment="CENTER" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'idea'
+}
+
+application {
+    mainModule = 'PongGame.main'
+    mainClass = 'com.pong.PongClient'
+}
+
+java {
+    modularity.inferModulePath=true
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.openjfx:javafx-base:16:win'
+    implementation 'org.openjfx:javafx-graphics:16:win'
+    implementation 'org.openjfx:javafx-controls:16:win'
+    implementation 'org.openjfx:javafx-fxml:16:win'
+}
