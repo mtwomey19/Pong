@@ -23,21 +23,24 @@ public class Paddle {
         mainPane.getChildren().add(this.sprite);
     }
 
+    // updates paddle position
     public void render() {
         sprite.setY(yPos);
     }
 
     public void move(long nanosecondsPassed) {
-        double seconds = nanosecondsPassed / 1e9;
+        double seconds = nanosecondsPassed / 1e9; // convert nanoseconds to seconds for displacement calculation
         yPos = yPos + (ySpeed * seconds);
-        this.render();
+        render();
     }
 
-    public void checkWalls(double height){
+    public void checkWalls(double height) {
+        // keeps paddle from moving below screen
         if (yPos <= 0){
             ySpeed = 0;
             yPos = 3;
         }
+        // keeps paddle from moving above screen
         else if (yPos >= (height - 48)) { // 48 represents the length of paddle
             ySpeed = 0;
             yPos = height - 51; // 51 represents length of paddle + 3

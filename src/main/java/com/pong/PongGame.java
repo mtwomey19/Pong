@@ -44,16 +44,17 @@ public class PongGame {
         keysPressed = new HashSet<>();
     }
 
+    // when New Game button pressed...
     public void newGame(ActionEvent actionEvent) {
         setUpGame();
         animationTimer = new AnimationTimer() {
             @Override
             public void handle(long now) {
-                if (lastRenderedAt == 0){
-                    lastRenderedAt = now - 1;
-                }
+                if (lastRenderedAt == 0) lastRenderedAt = now - 1;
+
                 long timePassed = now - lastRenderedAt;
                 lastRenderedAt = now;
+
                 update(timePassed);
                 getPlayerInput(paddle1, KeyCode.F, KeyCode.V);
                 getPlayerInput(paddle2, KeyCode.J, KeyCode.N);
@@ -62,7 +63,7 @@ public class PongGame {
         animationTimer.start();
     }
 
-    private void update(long timePassed){
+    private void update(long timePassed) {
         ball.move(timePassed);
         ball.horizontalWallCheck(400);
         ball.verticalWallCheck(600);
@@ -105,7 +106,8 @@ public class PongGame {
             animationTimer.stop();
             pause.setText("Resume");
             isPaused = true;
-        } else {
+        }
+        else {
             lastRenderedAt = System.nanoTime();
             animationTimer.start();
             pause.setText("Pause");

@@ -31,18 +31,20 @@ public class Ball {
         mainPane.getChildren().add(this.sprite);
     }
 
+    // updates ball position
     public void render() {
         sprite.setCenterX(xPos);
         sprite.setCenterY(yPos);
     }
 
     public void move(long nanosecondsPassed) {
-        double seconds = nanosecondsPassed / 1e9;
+        double seconds = nanosecondsPassed / 1e9; // converts nanoseconds to seconds for displacement calculation
         xPos = xPos + (xSpeed * seconds);
         yPos = yPos + (ySpeed * seconds);
         render();
     }
 
+    // bounces ball off top and bottom walls
     public void horizontalWallCheck(double height) {
         if (yPos <= 0) {
             ySpeed *= -1;
@@ -53,6 +55,9 @@ public class Ball {
             yPos = 400 - 5; // provides buffer to prevent ball from getting trapped along wall
         }
     }
+
+    // counts when ball moves past paddle and goes through side wall
+    // ball resets and begins in opposite direction to give player a chance to recover
     public void verticalWallCheck(int width) {
         if (xPos < 0 ){
             xPos = 200;
@@ -93,6 +98,6 @@ public class Ball {
         return xPos;
     }
     public void setXPos(double xPos) {
-        xPos = xPos;
+        this.xPos = xPos;
     }
 }
